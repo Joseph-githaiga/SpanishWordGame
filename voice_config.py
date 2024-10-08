@@ -15,7 +15,7 @@ for index, voice in enumerate(voices):
     print(f" - Language: {voice.languages}")
 
 
-# Function to set a voice
+# Function to set a specific voice
 def set_voice(voice_index):
     engine.setProperty('voice', voices[voice_index].id)
 
@@ -27,10 +27,9 @@ def speak_text(text):
     engine.say(text)
     engine.runAndWait()
 
-
-# Example usage: set a Spanish voice (you may need to change the index)
-set_voice(1)  # Change the index to choose a different voice
+# Example usage: set a Spanish voice (change the index to match the desired voice)
+set_voice(3)  # Adjust the index based on your output above
 
 # Example text in Spanish
-text = "Hola, estoy leyendo este texto en voz alta utilizando Python."
-speak_text(text)
+test_text = "Hola, estoy leyendo este texto en voz alta utilizando un acento español."
+speak_text(test_text)

@@ -5,4 +5,5 @@ class SpanishWordGame(App):
     pass
 
 
-SpanishWordGame().run()
+if __name__ == "__main__":
+    SpanishWordGame().run()
