@@ -12,7 +12,7 @@ def load_json(path):
     return dict1
 
 
-def write_json(file_path, new_data, is_sorted=False):
+def write_json(file_path, new_data):
     # Check if the file exists
     if os.path.exists(file_path):
         # If the file exists, read its current content
