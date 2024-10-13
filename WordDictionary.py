@@ -1,9 +1,9 @@
-from admin_panel import load_json, reverse_dict_constructor
+from admin_panel import load_json, reversed_dictionary_constructor
 
 # special_characters = ("ñ", "á", "é", "í", "ó", "ú")
 
 words = load_json("words.json")
-reversed_dict = reverse_dict_constructor(words)  # Creates a word dictionary of english(key) and spanish(values)
+reversed_dict = reversed_dictionary_constructor(words)  # Creates a word dictionary of english(key) and spanish(values)
 words_key_list = list(words.keys())
 words_values_list = list(words.values())
 reversed_dict_key_list = list(reversed_dict.keys())

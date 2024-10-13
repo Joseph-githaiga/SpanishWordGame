@@ -2,7 +2,7 @@ import json
 import os
 
 
-def load_json(path):
+def load_json(path: str) -> dict:
     with open(path, "r", encoding="utf-8") as words_dict:
         dict1 = json.load(words_dict)
         for key in dict1:
@@ -12,60 +12,69 @@ def load_json(path):
     return dict1
 
 
-def write_json(file_path, new_data):
-    # Check if the file exists
-    if os.path.exists(file_path):
-        # If the file exists, read its current content
-        with open(file_path, 'r', encoding="utf-8") as file:
-            try:
-                # Load existing data from the JSON file
-                existing_data = json.load(file)
-            except json.JSONDecodeError:
-                # If the file is empty or invalid, start with an empty list
-                existing_data = []
+def write_dict_to_json(data: dict, path: str, is_sorted=False) -> None:
+    """
+    Writes a dictionary into a .json file.
 
-        # Append new data to the existing data
-        if isinstance(existing_data, list):
-            existing_data.append(new_data)
-        elif isinstance(existing_data, dict):
-            existing_data.update(new_data)
+    :param data: This is the dictionary to be written to a json file.
+    :param path: This is the .json file's path.
+    :param is_sorted: An optional argument to sort the dictionary alphabetically.
+    :return: None
+    """
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as sample_data:
+            existing_data = json.load(sample_data)
 
-        # Write the updated data back to the file
-        with open(file_path, 'w', encoding="utf-8") as file:
-            json.dump(existing_data, file, indent=4, ensure_ascii=False)
+        existing_data.update(data)
+
+        if is_sorted:
+            existing_data = dict(sorted(existing_data.items()))
+
+        with open(path, "w", encoding="utf-8") as final_data:
+            json.dump(existing_data, final_data, indent=4, ensure_ascii=False)
+            print(f"Dictionary added to '{path}'")
     else:
-        # If the file doesn't exist, create a new one and write the new data
-        with open(file_path, 'w') as file:
-            json.dump(new_data, file, indent=4, ensure_ascii=False)
+        with open(path, "w", encoding="utf-8") as new_file:
+            if is_sorted:
+                data = dict(sorted(data.items()))
+            json.dump(data, new_file, indent=4, ensure_ascii=False)
+            print(f"Dictionary added to '{path}'")
 
 
-def reverse_dict_constructor(d):
-    reversed_dict = {}
+def reversed_dictionary_constructor(dictionary: dict) -> dict:
+    """
+    This function takes a dictionary with words and their meanings,
+    and returns a new dictionary where the keys are the meanings
+    and the values are the corresponding words.
 
-    for key, value in d.items():
-        if isinstance(value, tuple):
-            # If the value is a tuple, create multiple keys for each item in the tuple
-            for v in value:
-                if v in reversed_dict:
-                    # If the key exists, append the new key to a tuple
-                    if isinstance(reversed_dict[v], tuple):
-                        reversed_dict[v] += (key,)
+    If a meaning has multiple words associated with it, it stores them as a list.
+
+    :return: The reversed dictionary
+    :rtype: dict
+    """
+    reversed_dictionary = {}  # Initialize an empty dictionary for reversed data
+    for key, value in dictionary.items():  # Iterate through the original dictionary
+        if isinstance(value, list):  # If the value is a list of meanings
+            for v in value:  # Iterate through each meaning in the list
+                if v in reversed_dictionary:
+                    # If the meaning is already in the reversed dictionary, append the new key
+                    if isinstance(reversed_dictionary[v], list):
+                        reversed_dictionary[v].append(key)  # Append to the existing list
                     else:
-                        reversed_dict[v] = (reversed_dict[v], key)
+                        reversed_dictionary[v] = [reversed_dictionary[v], key]  # Convert to list and append
                 else:
-                    reversed_dict[v] = key
+                    reversed_dictionary[v] = key  # Add meaning as key, and word as value
         else:
-            # If the value is a string, handle it directly
-            if value in reversed_dict:
-                # If the key already exists, append the new key
-                if isinstance(reversed_dict[value], tuple):
-                    reversed_dict[value] += (key,)
+            # If the value is not a list (just a single meaning)
+            if value in reversed_dictionary:
+                # If the meaning already exists, append the new word to the list
+                if isinstance(reversed_dictionary[value], list):
+                    reversed_dictionary[value].append(key)
                 else:
-                    reversed_dict[value] = (reversed_dict[value], key)
+                    reversed_dictionary[value] = [reversed_dictionary[value], key]  # Convert to list and append
             else:
-                reversed_dict[value] = key
-
-    return reversed_dict
+                reversed_dictionary[value] = key  # Add meaning as key, and word as value
+    return reversed_dictionary  # Return the reversed dictionary
 
 
 if __name__ == "__main__":
