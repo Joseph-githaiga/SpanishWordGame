@@ -3,12 +3,19 @@ import os
 
 
 def load_json(path: str) -> dict:
+    """
+    This function reads a json file and returns the dictionary stored within to be used in python code.
+    :param path: The path of the json file to be read.
+    :return: dict1: This is the constructed dictionary
+    """
+
     with open(path, "r", encoding="utf-8") as words_dict:
         dict1 = json.load(words_dict)
         for key in dict1:
             value = dict1[key]
             if isinstance(value, list):
                 dict1[key] = tuple(value)
+        write_dict_to_json(data=dict1, path="sorted_words.json", is_sorted=True)
     return dict1
 
 
@@ -32,13 +39,11 @@ def write_dict_to_json(data: dict, path: str, is_sorted=False) -> None:
 
         with open(path, "w", encoding="utf-8") as final_data:
             json.dump(existing_data, final_data, indent=4, ensure_ascii=False)
-            print(f"Dictionary added to '{path}'")
     else:
         with open(path, "w", encoding="utf-8") as new_file:
             if is_sorted:
                 data = dict(sorted(data.items()))
             json.dump(data, new_file, indent=4, ensure_ascii=False)
-            print(f"Dictionary added to '{path}'")
 
 
 def reversed_dictionary_constructor(dictionary: dict) -> dict:

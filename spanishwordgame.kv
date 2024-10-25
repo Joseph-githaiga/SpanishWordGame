@@ -1,1 +1,64 @@
-MainWidget:
+<MainGame>:
+    rows: 3
+
+    Label:
+        id: game_name_label
+        text: 'S P A N I S H  W O R D  G A M E'
+        font_name: root.sackers_gothic_font
+        font_size: 34
+        color: (1, 0, 1, 1)
+
+    BoxLayout:
+        id: display_layout
+        orientation: "horizontal"
+
+        BoxLayout:
+            id: score_layout
+            Label:
+                id: score_label
+                text: "Score: "
+                font_name: root.eurostille_font
+                font_size: 20
+                color: (0, 1, 0, 1)
+            Label:
+                id: score_text
+                text: str(root.score)
+                font_name: root.eurostille_font
+                font_size: 20
+                color: (1, 0, 0, 1)
+
+        Label:
+            id: display_label
+            text: "Match the words!"
+            color: (1, 1, 0, 1)
+            font_size: 27
+            font_name: root.sackers_gothic_font
+
+        BoxLayout:
+            id: streak_layout
+            Label:
+                id: streak_label
+                text: "Streak: "
+                font_name: root.eurostille_font
+                font_size: 20
+                color: (0, 1, 0, 1)
+            Label:
+                id: streak_text
+                text: str(root.streak)
+                font_name: root.eurostille_font
+                font_size: 20
+                color: (1, 0, 0, 1)
+
+    GridLayout:
+        id: words_layout
+        cols: 2
+
+        BoxLayout:
+            id: spanish_words
+            orientation: "vertical"
+        BoxLayout:
+            id: english_words
+            orientation: "vertical"
+
+
+
