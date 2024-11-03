@@ -1,16 +1,12 @@
-<MainGame>:
-    rows: 3
 
-    Label:
-        id: game_name_label
-        text: 'S P A N I S H  W O R D  G A M E'
-        font_name: root.sackers_gothic_font
-        font_size: 34
-        color: (1, 0, 1, 1)
+<MainGame>:
+    name: "main game"
+    rows: 3
 
     BoxLayout:
         id: display_layout
         orientation: "horizontal"
+        size_hint_y: .3
 
         BoxLayout:
             id: score_layout
@@ -52,13 +48,23 @@
     GridLayout:
         id: words_layout
         cols: 2
+        size_hint_y: .6
+        padding: 10
 
         BoxLayout:
             id: spanish_words
             orientation: "vertical"
+            spacing: 5
+            padding: [10, 10, 5, 10]  # [left, top, right, bottom]
         BoxLayout:
             id: english_words
             orientation: "vertical"
+            padding: [5, 10, 10, 10]  # [left, top, right, bottom]
+            spacing: 5
 
-
-
+    Button:
+        id: next_round_button
+        text: "Next Round"
+        on_press: root.next_round(self)
+        disabled: True
+        size_hint: (.5, .1)

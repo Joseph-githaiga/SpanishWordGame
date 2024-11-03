@@ -19,7 +19,7 @@ def load_json(path: str) -> dict:
     return dict1
 
 
-def write_dict_to_json(data: dict, path: str, is_sorted=False) -> None:
+def write_dict_to_json(data: dict, path: str, is_sorted: bool = False) -> None:
     """
     Writes a dictionary into a .json file.
 
@@ -57,7 +57,7 @@ def reversed_dictionary_constructor(dictionary: dict) -> dict:
     :return: The reversed dictionary
     :rtype: dict
     """
-    reversed_dictionary = {}  # Initialize an empty dictionary for reversed data
+    reversed_dictionary: dict = {}  # Initialize an empty dictionary for reversed data
     for key, value in dictionary.items():  # Iterate through the original dictionary
         if isinstance(value, list):  # If the value is a list of meanings
             for v in value:  # Iterate through each meaning in the list
