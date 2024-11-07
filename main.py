@@ -177,10 +177,10 @@ class MainGame(GridLayout):
         self.translations: list = self.find_translation()  # Finds their translations
 
         for index, button in enumerate(self.ids.spanish_words.children):
-            button.disabled = False
+            button.disabled = False  # Activates all the buttons
             button.text = self.selected_spanish_words[index]  # Changes the text according to the new selected words
         for index, button in enumerate(self.ids.english_words.children):
-            button.disabled = False
+            button.disabled = False  # Activates all the buttons
             button.text = self.translations[index]  # Changes the text according to the new selected words
 
 
