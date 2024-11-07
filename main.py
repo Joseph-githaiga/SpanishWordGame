@@ -18,8 +18,6 @@ class MainGame(GridLayout):
     words_total: int = 5  # Total number of words to be matched
     selected_spanish_word: None | str = None  # Spanish Word selected when the button is clicked. Default is None
     selected_english_word: None | str = None  # English Word selected when the button is clicked. Default is None
-    spanish_buttons: list = []  # List to store Spanish buttons
-    english_buttons: list = []  # # List to store English buttons
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -34,14 +32,12 @@ class MainGame(GridLayout):
             btn = Button(text=self.selected_spanish_words[i-1])  # Adds text to the Spanish buttons
             btn.bind(on_press=self.spanish_button_press)  # Binds a function to the button press
             self.ids.spanish_words.add_widget(btn)  # Adds the buttons to the kivy window
-            self.spanish_buttons.append(btn)  # Adds buttons to the list of buttons above
 
         # Buttons containing text in English
         for i in range(1, self.words_total + 1):
             btn = Button(text=self.translations[i-1])  # Adds text to the English buttons
             btn.bind(on_press=self.english_button_press)  # Binds a function to the button press
             self.ids.english_words.add_widget(btn)  # Adds the buttons to the kivy window
-            self.english_buttons.append(btn)  # Adds buttons to the list of buttons above
 
     def find_translation(self) -> list:
         """
@@ -54,6 +50,8 @@ class MainGame(GridLayout):
         for word in self.selected_spanish_words:  # Iterates over the list
             translation: str | list = words[word]  # Adds the correct translation to the list above
             if isinstance(translation, tuple):  # Checks if a word has multiple translations stored in a tuple
+                translation = random.choice(translation)  # Randomly picks one translation
+            elif isinstance(translation, list):  # Checks if a word has multiple translations stored in a list
                 translation = random.choice(translation)  # Randomly picks one translation
             translations.append(translation)  # Adds the translation to the list
         random.shuffle(translations)  # Shuffles the list so the words/ translations answers aren't aligned side to side
@@ -107,11 +105,11 @@ class MainGame(GridLayout):
             self.ids.next_round_button.disabled = False  # Activates the next round button
             self.matched_words = 0  # Resets the matched words count to 0 for the next round
 
-        for btn in self.spanish_buttons:  # Iterates over Spanish buttons
+        for btn in self.ids.spanish_words.children:  # Iterates over Spanish buttons
             if btn.text == self.selected_spanish_word:  # Validates which button to disable
                 btn.disabled = True  # Disables the button
 
-        for btn in self.english_buttons:  # Iterates over English buttons
+        for btn in self.ids.english_words.children:  # Iterates over English buttons
             if btn.text == self.selected_english_word:  # Validates which button to disable
                 btn.disabled = True  # Disables the button
 
@@ -175,19 +173,15 @@ class MainGame(GridLayout):
         :return: None
         """
         instance.disabled = True  # Disables the button
-        self.selected_spanish_word = random.sample(words_key_list, self.words_total)  # Picks a new list of words
+        self.selected_spanish_words = random.sample(words_key_list, self.words_total)  # Picks a new list of words
         self.translations: list = self.find_translation()  # Finds their translations
-        print(self.selected_spanish_words, self.translations, sep="\n")
-        index = 0  # Counter for the iteration the for loop is on
-        for button in self.spanish_buttons:  # Iterates over buttons containing text in Spanish
+
+        for index, button in enumerate(self.ids.spanish_words.children):
             button.disabled = False
-            assert isinstance(button, Button)
-            button.text = self.selected_spanish_word[index]  # Changes the text according to the new selected words
-            index += 1  # Moves to the next button
-        for button in self.english_buttons:  # Iterates over buttons containing text in English
+            button.text = self.selected_spanish_words[index]  # Changes the text according to the new selected words
+        for index, button in enumerate(self.ids.english_words.children):
             button.disabled = False
-            button.text = self.translations[index]  # # Changes the text according to the new selected words
-            index += 1  # Moves to the next button
+            button.text = self.translations[index]  # Changes the text according to the new selected words
 
 
 class SpanishWordGameApp(App):

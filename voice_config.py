@@ -1,5 +1,4 @@
 import pyttsx3
-from kivy.clock import Clock
 
 
 # Function to set a specific voice
