@@ -28,12 +28,14 @@ def reversed_dictionary_constructor(dictionary: dict) -> dict:
     return reversed_dictionary
 
 
-words: dict = {
-    "En Ese Caso": "In That Case",
-    "Joke": ["Chiste", "Broma"],
-    "Debil": "Weak",
-    "Decaido": "Weak"}
+if __name__ == "__main__":
 
-reversed_words: dict = reversed_dictionary_constructor(words)
-for k, v in reversed_words.items():
-    print(f"{k}: {v}")
+    words: dict = {
+        "En Ese Caso": "In That Case",
+        "Joke": ["Chiste", "Broma"],
+        "Debil": "Weak",
+        "Decaido": "Weak"}
+
+    reversed_words: dict = reversed_dictionary_constructor(words)
+    for k, v in reversed_words.items():
+        print(f"{k}: {v}")

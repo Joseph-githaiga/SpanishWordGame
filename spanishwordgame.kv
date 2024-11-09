@@ -1,6 +1,44 @@
 
+<HomeScreen>:
+
+    BoxLayout:
+        orientation: "vertical"
+
+        Label:
+            text: "S P A N I S H  W O R D  G A M E"
+            bold: True
+            font_size: 33
+            font_name: root.sackers_gothic_font
+            color: (1, .5, .8, 1)
+
+        BoxLayout:
+            orientation: "vertical"
+            spacing: 15
+            padding: 20
+
+            Button:
+                text: "Main Game"
+                size_hint: (0.7, 0.7)
+                pos_hint: {"center_x": .5}
+                on_release: root.manager.current = 'main'
+            Button:
+                text: "Words List"
+                size_hint: (0.7, 0.7)
+                pos_hint: {"center_x": .5}
+                on_release: root.manager.current = 'words'
+            Button:
+                text: "Voice Settings"
+                size_hint: (0.7, 0.7)
+                pos_hint: {"center_x": .5}
+                on_release: root.manager.current = 'voices'
+            Button:
+                text: "Records"
+                size_hint: (0.7, 0.7)
+                pos_hint: {"center_x": .5}
+                on_release: root.manager.current = 'records'
+
+
 <MainGame>:
-    name: "main game"
     rows: 3
 
     BoxLayout:
@@ -16,6 +54,7 @@
                 font_name: root.eurostille_font
                 font_size: 20
                 color: (0, 1, 0, 1)
+
             Label:
                 id: score_text
                 text: str(root.score)
@@ -32,12 +71,14 @@
 
         BoxLayout:
             id: streak_layout
+
             Label:
                 id: streak_label
                 text: "Streak: "
                 font_name: root.eurostille_font
                 font_size: 20
                 color: (0, 1, 0, 1)
+
             Label:
                 id: streak_text
                 text: str(root.streak)
@@ -56,15 +97,59 @@
             orientation: "vertical"
             spacing: 5
             padding: [10, 10, 5, 10]  # [left, top, right, bottom]
+
         BoxLayout:
             id: english_words
             orientation: "vertical"
             padding: [5, 10, 10, 10]  # [left, top, right, bottom]
             spacing: 5
 
-    Button:
-        id: next_round_button
-        text: "Next Round"
-        on_press: root.next_round(self)
-        disabled: True
+    BoxLayout:
+        orientation: "horizontal"
         size_hint: (.5, .1)
+        padding: 3
+        spacing: 7
+
+        Button:
+            text: "Back"
+            size_hint_x: .3
+            font_size: 18
+            on_release: root.manager.current = 'home'
+
+        Button:
+            id: next_round_button
+            text: "Next Round"
+            font_size: 18
+            on_press:
+                root.next_round(self)
+            disabled: True
+
+
+<AllWords>:
+
+    Button:
+        text: "Back"
+        on_release: root.manager.current = 'home'
+        size_hint: (.2, .08)
+        padding: 50
+        pos_hint: {"center_x": .5, "center_y": .3}
+
+
+<VoiceSettings>:
+
+    Button:
+        text: "Back"
+        on_release: root.manager.current = 'home'
+        size_hint: (.2, .08)
+        padding: 50
+        pos_hint: {"center_x": .5, "center_y": .3}
+
+
+<Records>:
+
+    Button:
+        text: "Back"
+        on_release: root.manager.current = 'home'
+        size_hint: (.2, .08)
+        padding: 50
+        pos_hint: {"center_x": .5, "center_y": .3}

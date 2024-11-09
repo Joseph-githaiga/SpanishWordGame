@@ -1,40 +1,32 @@
 import pyttsx3
 
 
-# Function to set a specific voice
-def set_voice(voice_index):
-    engine.setProperty('voice', voices[voice_index].id)
+my_voices_names = '''
+    Microsoft David Desktop - English (United States)
+    Microsoft Hazel Desktop - English (Great Britain)
+    Microsoft Zira Desktop - English (United States)
+    Microsoft Helena Desktop - Spanish (Spain)
+    Microsoft Sabina Desktop - Spanish (Mexico)'''
 
-
-# Function to read text aloud
-def speak_text(text):
-    engine.setProperty('rate', 150)  # Speed (words per minute)
-    engine.setProperty('volume', 1)  # Volume level (0.0 to 1.0)
-    engine.say(text)
-    engine.runAndWait()
-
-
-def read_out_loud(output_text, output_voice):
-    if output_voice == "american_english_male":
-        set_voice(0)
-    elif output_voice == "british_english":
-        set_voice(1)
-    elif output_voice == "american_english_female":
-        set_voice(2)
-    elif output_voice == "european_spanish":
-        set_voice(3)
-    elif output_voice == "mexican_spanish":
-        set_voice(4)
-    else:
-        print("No such voice")
-        set_voice(1)
-    speak_text(output_text)
+my_voices_ids = '''
+    HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices\\Tokens\\TTS_MS_EN-US_DAVID_11.0
+    HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices\\Tokens\\TTS_MS_EN-GB_HAZEL_11.0
+    HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices\\Tokens\\TTS_MS_EN-US_ZIRA_11.0
+    HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices\\Tokens\\TTS_MS_ES-ES_HELENA_11.0
+    HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices\\Tokens\\TTS_MS_ES-MX_SABINA_11.0'''
 
 # Initialize the pyttsx3 engine
 engine = pyttsx3.init()
 
 # List all available voices
 voices = engine.getProperty('voices')
+voices_dictionary = {}
+for item in voices:
+    voices_dictionary[item.id] = item.name
+
+for key, value in voices_dictionary.items():
+    print(key + ": " + value)
+
 
 #  = set_voice(0)
 #  = set_voice(1)
@@ -43,7 +35,7 @@ voices = engine.getProperty('voices')
 #  = set_voice(4)
 
 
-if __name__ == "__main__":
+'''if __name__ == "__main__":
 
     # Print all available voices with details
     for index, voice in enumerate(voices):
@@ -57,5 +49,4 @@ if __name__ == "__main__":
 
     # Example text in Spanish
     test_text = "Hola, estoy leyendo este texto en voz alta utilizando un acento español."
-    # speak_text(test_text)
-    read_out_loud(test_text, "mexican_spanish")
+    # speak_text(test_text)'''

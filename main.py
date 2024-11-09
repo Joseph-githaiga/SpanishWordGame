@@ -2,12 +2,16 @@ from kivy.app import App
 from kivy.properties import StringProperty
 from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
+from kivy.uix.boxlayout import BoxLayout
 from kivy.core.audio import SoundLoader
+from kivy.uix.label import Label
+from kivy.uix.screenmanager import ScreenManager, Screen
 from WordDictionary import words, words_key_list  # .py file containing words to be used in the game
 import random
+import pyttsx3
 
 
-class MainGame(GridLayout):
+class MainGame(GridLayout, Screen):
 
     # Class variables
     eurostille_font = StringProperty("fonts/Eurostile.ttf")  # Font name used in the kv file
@@ -29,26 +33,27 @@ class MainGame(GridLayout):
         # Adds text to the buttons and add them to the BoxLayout in the Kv File
         # Buttons containing text in Spanish
         for i in range(1, self.words_total + 1):
-            btn = Button(text=self.selected_spanish_words[i-1])  # Adds text to the Spanish buttons
+            btn = RoundedButton(text=self.selected_spanish_words[i-1])  # Adds text to the Spanish buttons
             btn.bind(on_press=self.spanish_button_press)  # Binds a function to the button press
             self.ids.spanish_words.add_widget(btn)  # Adds the buttons to the kivy window
 
         # Buttons containing text in English
         for i in range(1, self.words_total + 1):
-            btn = Button(text=self.translations[i-1])  # Adds text to the English buttons
+            btn = RoundedButton(text=self.translations[i-1])  # Adds text to the English buttons
             btn.bind(on_press=self.english_button_press)  # Binds a function to the button press
             self.ids.english_words.add_widget(btn)  # Adds the buttons to the kivy window
 
     def find_translation(self) -> list:
         """
         Takes the 5 randomly selected words and finds their translations in the words dictionary
-        :return: list
+        :return: translations
+        :rtype: list
         """
 
         translations: list = []  # Empty list to store words
 
         for word in self.selected_spanish_words:  # Iterates over the list
-            translation: str | list = words[word]  # Adds the correct translation to the list above
+            translation: str | list | tuple = words[word]  # Adds the correct translation to the list above
             if isinstance(translation, tuple):  # Checks if a word has multiple translations stored in a tuple
                 translation = random.choice(translation)  # Randomly picks one translation
             elif isinstance(translation, list):  # Checks if a word has multiple translations stored in a list
@@ -57,7 +62,7 @@ class MainGame(GridLayout):
         random.shuffle(translations)  # Shuffles the list so the words/ translations answers aren't aligned side to side
         return translations
 
-    def spanish_button_press(self, instance) -> None:
+    def spanish_button_press(self, instance: Button) -> None:
         """
         Handles what is done when a button with Spanish text is pressed.
         :param instance: This is the representation of the button pressed
@@ -65,9 +70,9 @@ class MainGame(GridLayout):
         """
         self.ids.display_label.text = ""  # Removes the text from the display label in the .kv file
         self.selected_spanish_word = instance.text  # Stores the text of the button pressed
-        self.check_match()  # Checks if there is a correct match assuming 2 words have been clicked
+        self.check_match()  # Checks if there is a correct match assuming 2 words have been selected
 
-    def english_button_press(self, instance) -> None:
+    def english_button_press(self, instance: Button) -> None:
         """
         Handles what is done when a button with English text is pressed.
         :param instance: This is the representation of the button pressed
@@ -75,7 +80,7 @@ class MainGame(GridLayout):
         """
         self.ids.display_label.text = ""  # Removes the text from the display label in the .kv file
         self.selected_english_word = instance.text  # Stores the text of the button pressed
-        self.check_match()  # Checks if there is a correct match assuming 2 words have been clicked
+        self.check_match()  # Checks if there is a correct match assuming 2 words have been selected
 
     def correct(self) -> None:
 
@@ -153,19 +158,23 @@ class MainGame(GridLayout):
         if en is not None and es is not None:
             # Basically means an english word and a spanish word have been selected.
             if isinstance(words[es], tuple):
-                # Checks if the english word has multiple meanings stored in a list
+                # Checks if the english word has multiple meanings stored in a tuple
                 if en in words[es]:
-                    # Checks is the matched word is one in the possible translations
+                    # Words are correctly matched
                     self.correct()
                 else:
+                    # Words are incorrectly matched
                     self.incorrect()
             else:
+                # The translation only contains a single word in a string.
                 if en == words[es]:
+                    # Words are correctly matched
                     self.correct()
                 else:
+                    # Words are incorrectly matched
                     self.incorrect()
 
-    def next_round(self, instance) -> None:
+    def next_round(self, instance: Button) -> None:
         """
         It generates a new list of words if all the words have been matched correctly.
         Also changes the text of the old buttons to fit the new selected words
@@ -184,9 +193,62 @@ class MainGame(GridLayout):
             button.text = self.translations[index]  # Changes the text according to the new selected words
 
 
+class RoundedButton(Button):
+    pass
+
+
+class AllWords(Screen, BoxLayout):
+    
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        self.orientation = "horizontal"
+        self.add_widget(Label(text="Words List Under Development!", font_size=35, bold=True, color=(.5, .5, .5, 1)))
+
+
+class VoiceSettings(Screen, BoxLayout):
+
+    engine = pyttsx3.init()  # Initiate text to speech engine
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        self.orientation = "horizontal"
+        self.add_widget(Label(text="VoiceSettings Under Development!", font_size=35, bold=True, color=(.5, .5, .5, 1)))
+
+
+class Records(Screen, BoxLayout):
+
+    engine = pyttsx3.init()  # Initiate text to speech engine
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        self.orientation = "horizontal"
+        self.add_widget(Label(text="Records Under Development!", font_size=35, bold=True, color=(.5, .5, .5, 1)))
+
+    
+class HomeScreen(Screen):
+
+    sackers_gothic_font = StringProperty("fonts/Sackers-Gothic-Std-Light.ttf")  # Font name used in the kv file
+
+
 class SpanishWordGameApp(App):
-    def build(self):
-        return MainGame()
+    def build(self) -> ScreenManager:
+        """
+        Method override
+        Read the documentation from Kivy's website.
+        :return: sm
+        :rtype: ScreenManager
+        """
+        sm = ScreenManager()  # Instantiate the ScreenManager class
+        # Add screens to the screen manager
+        sm.add_widget(HomeScreen(name="home"))
+        sm.add_widget(MainGame(name="main"))
+        sm.add_widget(AllWords(name="words"))
+        sm.add_widget(VoiceSettings(name="voices"))
+        sm.add_widget(Records(name="records"))
+        return sm
 
 
 if __name__ == "__main__":
