@@ -13,6 +13,6 @@ reversed_dict_values_list: list = list(reversed_dict.values())
 
 if __name__ == "__main__":
 
-    print(f"\nThere are {len(words)} words in the words.json", end=" ")
+    print(f"\nThere are {len(words)} words in words.json", end=" ")
     print(f"and {len(reversed_dict)} words in the REVERSED DICTIONARY.\n")
     print(words["Derrota"])

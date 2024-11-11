@@ -198,7 +198,7 @@ class RoundedButton(Button):
 
 
 class AllWords(Screen, BoxLayout):
-    
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
@@ -219,15 +219,13 @@ class VoiceSettings(Screen, BoxLayout):
 
 class Records(Screen, BoxLayout):
 
-    engine = pyttsx3.init()  # Initiate text to speech engine
-
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
         self.orientation = "horizontal"
         self.add_widget(Label(text="Records Under Development!", font_size=35, bold=True, color=(.5, .5, .5, 1)))
 
-    
+
 class HomeScreen(Screen):
 
     sackers_gothic_font = StringProperty("fonts/Sackers-Gothic-Std-Light.ttf")  # Font name used in the kv file
