@@ -1,5 +1,6 @@
 import json
 import os
+from typing import Union
 
 
 def load_json(path: str) -> dict:
@@ -19,29 +20,36 @@ def load_json(path: str) -> dict:
     return dict1
 
 
-def write_dict_to_json(data: dict, path: str, is_sorted: bool = False) -> None:
+def write_dict_to_json(data: Union[dict, list], path: str, is_sorted: bool = False) -> None:
     """
-    Writes a dictionary into a .json file.
+    Writes a dictionary or list into a .json file.
 
-    :param data: This is the dictionary to be written to a json file.
-    :param path: This is the .json file's path.
-    :param is_sorted: An optional argument to sort the dictionary alphabetically.
+    :param data: The dictionary or list to be written to a JSON file.
+    :param path: The .json file's path.
+    :param is_sorted: Optionally sorts the dictionary alphabetically.
     :return: None
     """
     if os.path.exists(path):
+        # Use a context manager to ensure file is closed after reading
         with open(path, "r", encoding="utf-8") as sample_data:
-            existing_data = json.load(sample_data)
+            existing_data: Union[dict, list] = json.load(sample_data)
 
-        existing_data.update(data)
+        if isinstance(data, dict) and isinstance(existing_data, dict):
+            existing_data.update(data)
+            if is_sorted:
+                existing_data = dict(sorted(existing_data.items()))
 
-        if is_sorted:
-            existing_data = dict(sorted(existing_data.items()))
+        elif isinstance(data, list) and isinstance(existing_data, list):
+            existing_data.extend(data)
 
+        # Use another context manager for writing
         with open(path, "w", encoding="utf-8") as final_data:
             json.dump(existing_data, final_data, indent=4, ensure_ascii=False)
+
     else:
+        # Write new file if path doesn't exist
         with open(path, "w", encoding="utf-8") as new_file:
-            if is_sorted:
+            if is_sorted and isinstance(data, dict):
                 data = dict(sorted(data.items()))
             json.dump(data, new_file, indent=4, ensure_ascii=False)
 

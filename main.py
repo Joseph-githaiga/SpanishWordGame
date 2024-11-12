@@ -7,6 +7,7 @@ from kivy.core.audio import SoundLoader
 from kivy.uix.label import Label
 from kivy.uix.screenmanager import ScreenManager, Screen
 from WordDictionary import words, words_key_list  # .py file containing words to be used in the game
+from admin_panel import load_json, write_dict_to_json
 import random
 import pyttsx3
 
@@ -139,6 +140,11 @@ class MainGame(GridLayout, Screen):
         self.ids.display_label.color = (1, 0, 0, 1)  # Changes the label colour to red
         self.ids.display_label.text = "INCORRECT!"  # Updates the display label text to nothing
 
+        # Write the wrong the corrections to a json file
+        corrections: list = [{self.selected_spanish_word: words[self.selected_spanish_word]},
+                             {self.find_key_from_value(self.selected_english_word): self.selected_english_word}]
+        write_dict_to_json(data=corrections, path="corrections.json", is_sorted=True)
+
         # Resets the selected words to None
         self.selected_spanish_word = None
         self.selected_english_word = None
@@ -192,6 +198,16 @@ class MainGame(GridLayout, Screen):
             button.disabled = False  # Activates all the buttons
             button.text = self.translations[index]  # Changes the text according to the new selected words
 
+    @staticmethod
+    def find_key_from_value(value):
+        """
+        Finds the key in dictionary using its corresponding value
+        """
+
+        for key in words:
+            if words[key] == value:
+                return key
+
 
 class RoundedButton(Button):
     pass
@@ -224,6 +240,8 @@ class Records(Screen, BoxLayout):
 
         self.orientation = "horizontal"
         self.add_widget(Label(text="Records Under Development!", font_size=35, bold=True, color=(.5, .5, .5, 1)))
+
+        self.sorted_words = load_json("sorted_words.json")  # Load .json file containing words sorted alphabetically.
 
 
 class HomeScreen(Screen):
