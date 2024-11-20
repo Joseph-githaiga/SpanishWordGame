@@ -7,10 +7,11 @@ from kivy.core.audio import SoundLoader
 from kivy.uix.label import Label
 from kivy.uix.screenmanager import ScreenManager, Screen
 from WordDictionary import words, words_key_list  # .py file containing words for the game
-from admin_panel import load_json, write_dict_to_json
+from admin_panel import write_dict_to_json
 import random
 import pyttsx3
 from typing import Union, List
+
 
 class MainGame(GridLayout, Screen):
     eurostille_font = StringProperty("fonts/Eurostile.ttf")  # Font for use in .kv file
@@ -188,4 +189,72 @@ class MainGame(GridLayout, Screen):
                 return key
         return ""
 
-# The remaining classes, like AllWords, VoiceSettings, etc., follow the same pattern.
+
+class RoundedButton(Button):
+    pass
+
+
+class AllWords(Screen, BoxLayout):
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        self.orientation = "horizontal"
+        self.add_widget(Label(text="Words List Under Development!", font_size=35, bold=True, color=(.5, .5, .5, 1)))
+
+
+class VoiceSettings(Screen, BoxLayout):
+
+    engine = pyttsx3.init()  # Initiate text to speech engine
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        self.orientation = "horizontal"
+        self.add_widget(Label(text="VoiceSettings Under Development!", font_size=35, bold=True, color=(.5, .5, .5, 1)))
+
+
+class Records(Screen, BoxLayout):
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        self.orientation = "horizontal"
+        self.add_widget(Label(text="Records Under Development!", font_size=35, bold=True, color=(.5, .5, .5, 1)))
+
+
+class AddNewWords(Screen, BoxLayout):
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        self.orientation = "horizontal"
+        self.add_widget(Label(text="Add new words Under Development!", font_size=35, bold=True, color=(.5, .5, .5, 1)))
+
+
+class HomeScreen(Screen):
+
+    sackers_gothic_font = StringProperty("fonts/Sackers-Gothic-Std-Light.ttf")  # Font name used in the kv file
+
+
+class SpanishWordGameApp(App):
+    def build(self) -> ScreenManager:
+        """
+        Method override
+        Read the documentation from Kivy's website.
+        :return: sm
+        :rtype: ScreenManager
+        """
+        sm = ScreenManager()  # Instantiate the ScreenManager class
+        # Add screens to the screen manager
+        sm.add_widget(HomeScreen(name="home"))
+        sm.add_widget(MainGame(name="main"))
+        sm.add_widget(AllWords(name="words"))
+        sm.add_widget(AddNewWords(name="new words"))
+        sm.add_widget(VoiceSettings(name="voices"))
+        sm.add_widget(Records(name="records"))
+        return sm
+
+
+if __name__ == "__main__":
+    SpanishWordGameApp().run()

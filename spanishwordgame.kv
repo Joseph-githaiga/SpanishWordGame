@@ -10,32 +10,31 @@
             font_size: 33
             font_name: root.sackers_gothic_font
             color: (1, .5, .8, 1)
+            size_hint: (1, .5)
 
         BoxLayout:
             orientation: "vertical"
-            spacing: 15
+            spacing: 5
             padding: 20
 
-            Button:
+            MainMenuButton:
                 text: "Main Game"
-                size_hint: (0.7, 0.7)
-                pos_hint: {"center_x": .5}
                 on_release: root.manager.current = 'main'
-            Button:
+            MainMenuButton:
                 text: "Words List"
-                size_hint: (0.7, 0.7)
-                pos_hint: {"center_x": .5}
                 on_release: root.manager.current = 'words'
-            Button:
+            MainMenuButton:
+                text: "Add New Words"
+                on_release: root.manager.current = 'new words'
+            MainMenuButton:
                 text: "Voice Settings"
-                size_hint: (0.7, 0.7)
-                pos_hint: {"center_x": .5}
                 on_release: root.manager.current = 'voices'
-            Button:
+            MainMenuButton:
                 text: "Records"
-                size_hint: (0.7, 0.7)
-                pos_hint: {"center_x": .5}
                 on_release: root.manager.current = 'records'
+            MainMenuButton:
+                text: "Exit"
+                on_release: exit()
 
 
 <MainGame>:
@@ -125,6 +124,12 @@
             disabled: True
 
 
+<MainMenuButton@Button>
+
+    size_hint: (.7, .7)
+    pos_hint: {"center_x": .5}
+
+
 <AllWords>:
 
     Button:
@@ -133,6 +138,49 @@
         size_hint: (.2, .08)
         padding: 50
         pos_hint: {"center_x": .5, "center_y": .3}
+
+
+<AddNewWords>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 10
+        GridLayout:
+            cols: 2
+            rows: 2
+            spacing: 10
+
+            Label:
+                id: spanish_textbox_label
+                text: "Spanish Word"
+                font_size: 40
+                size_hint_y: .2
+            Label:
+                text: "English Word"
+                font_size: 40
+                size_hint_y: .2
+            TextInput:
+                id: spanish_word_textbox
+                multiline: False
+                size_hint_y: .02
+                font_size: 30
+                background_normal: ""
+                background_color: (.3, .3, .3, 1)
+                pos_hint: {"center_y": .5}
+            TextInput:
+                id: english_word_textbox
+                multiline: False
+                size_hint_y: .02
+                font_size: 30
+                background_normal: ""
+                background_color: (.3, .3, .3, 1)
+                pos_hint: {"center_y": .5}
+        Button:
+            text: "Submit"
+            size_hint_x: .3
+            size_hint_y: .1
+            pos_hint: {"center_x": .5}
+            on_press: root.submit()
 
 
 <VoiceSettings>:

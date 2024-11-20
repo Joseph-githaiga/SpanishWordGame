@@ -6,8 +6,8 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.core.audio import SoundLoader
 from kivy.uix.label import Label
 from kivy.uix.screenmanager import ScreenManager, Screen
-from WordDictionary import words, words_key_list  # .py file containing words to be used in the game
-from admin_panel import load_json, write_dict_to_json
+from WordDictionary import words, words_key_list, reversed_dict  # .py file containing words to be used in the game
+from admin_panel import write_dict_to_json
 import random
 import pyttsx3
 
@@ -30,6 +30,11 @@ class MainGame(GridLayout, Screen):
         # Instance variables
         self.selected_spanish_words: list = random.sample(words_key_list, self.words_total)  # Randomly selected words
         self.translations: list = self.find_translation()  # Translations to the randomly selected spanish words above
+
+        # Load audios
+        self.correct_audio = SoundLoader.load("audios/correct.mp3")
+        self.incorrect_audio = SoundLoader.load("audios/wrong.mp3")
+        self.lesson_complete_audio = SoundLoader.load("audios/lesson_complete.mp3")
 
         # Adds text to the buttons and add them to the BoxLayout in the Kv File
         # Buttons containing text in Spanish
@@ -94,8 +99,7 @@ class MainGame(GridLayout, Screen):
         :return: None
         """
         # If the spanish word is correctly matched.
-        my_audio = SoundLoader.load("audios/correct.mp3")  # Loads audio
-        my_audio.play()  # Plays audio
+        self.correct_audio.play()  # Plays audio
 
         self.ids.display_label.color = (0, 1, 0, 1)  # Changes the label colour to green
         self.ids.display_label.text = "CORRECT!"  # Changes label text to correct
@@ -106,8 +110,7 @@ class MainGame(GridLayout, Screen):
         self.ids.streak_text.text = str(self.streak)  # Updates the streak label to the current streak
 
         if self.matched_words == self.words_total:  # If all words have been matched
-            lesson_complete_audio = SoundLoader.load("audios/lesson_complete.mp3")  # Loads audio
-            lesson_complete_audio.play()  # plays audio
+            self.lesson_complete_audio.play()  # plays audio
             self.ids.next_round_button.disabled = False  # Activates the next round button
             self.matched_words = 0  # Resets the matched words count to 0 for the next round
 
@@ -132,8 +135,7 @@ class MainGame(GridLayout, Screen):
         :return:
         """
         # Incorrect match
-        my_audio = SoundLoader.load("audios/wrong.mp3")  # Loads audio
-        my_audio.play()  # Plays audio
+        self.incorrect_audio.play()  # Plays audio
 
         self.streak = 0  # Resets the streak to 0
         self.ids.streak_text.text = str(self.streak)  # Updates the streak label to the current streak
@@ -241,7 +243,32 @@ class Records(Screen, BoxLayout):
         self.orientation = "horizontal"
         self.add_widget(Label(text="Records Under Development!", font_size=35, bold=True, color=(.5, .5, .5, 1)))
 
-        self.sorted_words = load_json("sorted_words.json")  # Load .json file containing words sorted alphabetically.
+
+class AddNewWords(Screen):
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.words_file = "new_words.json"
+
+    def submit(self) -> None:
+        spanish_word: str = self.ids.spanish_word_textbox.text
+        english_word: str = self.ids.english_word_textbox.text
+        spanish_word = spanish_word.title()
+        english_word = english_word.title()
+        new_words_dict = {spanish_word: english_word}
+
+        if not self.words_already_exist(spanish_word, english_word):
+            write_dict_to_json(new_words_dict, self.words_file, is_sorted=True)
+
+        self.ids.spanish_word_textbox.text = ""
+        self.ids.english_word_textbox.text = ""
+
+    @staticmethod
+    def words_already_exist(word, translation) -> bool:
+        if word in words or translation in reversed_dict:
+            return True
+        else:
+            return False
 
 
 class HomeScreen(Screen):
@@ -262,6 +289,7 @@ class SpanishWordGameApp(App):
         sm.add_widget(HomeScreen(name="home"))
         sm.add_widget(MainGame(name="main"))
         sm.add_widget(AllWords(name="words"))
+        sm.add_widget(AddNewWords(name="new words"))
         sm.add_widget(VoiceSettings(name="voices"))
         sm.add_widget(Records(name="records"))
         return sm
