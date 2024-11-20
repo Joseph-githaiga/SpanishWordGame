@@ -1,4 +1,5 @@
 from kivy.app import App
+from kivy.core.window import Window
 from kivy.properties import StringProperty
 from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
@@ -165,7 +166,7 @@ class MainGame(GridLayout, Screen):
 
         if en is not None and es is not None:
             # Basically means an english word and a spanish word have been selected.
-            if isinstance(words[es], tuple):
+            if isinstance(words[es], list):
                 # Checks if the english word has multiple meanings stored in a tuple
                 if en in words[es]:
                     # Words are correctly matched
@@ -253,11 +254,11 @@ class AddNewWords(Screen):
     def submit(self) -> None:
         spanish_word: str = self.ids.spanish_word_textbox.text
         english_word: str = self.ids.english_word_textbox.text
-        spanish_word = spanish_word.title()
-        english_word = english_word.title()
-        new_words_dict = {spanish_word: english_word}
+        spanish_word = spanish_word.title().strip()
+        english_word = english_word.title().strip()
 
         if not self.words_already_exist(spanish_word, english_word):
+            new_words_dict = {spanish_word: english_word}
             write_dict_to_json(new_words_dict, self.words_file, is_sorted=True)
 
         self.ids.spanish_word_textbox.text = ""
@@ -265,7 +266,7 @@ class AddNewWords(Screen):
 
     @staticmethod
     def words_already_exist(word, translation) -> bool:
-        if word in words or translation in reversed_dict:
+        if word in words and translation in reversed_dict:
             return True
         else:
             return False

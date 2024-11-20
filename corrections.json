@@ -1,0 +1,77 @@
+[
+    {
+        "Pasillo": [
+            "Hallway",
+            "Aisle"
+        ]
+    },
+    {
+        "null": "Hallway"
+    },
+    {
+        "Pasillo": [
+            "Hallway",
+            "Aisle"
+        ]
+    },
+    {
+        "null": "Hallway"
+    },
+    {
+        "Pasillo": [
+            "Hallway",
+            "Aisle"
+        ]
+    },
+    {
+        "null": "Hallway"
+    },
+    {
+        "Extraterrestres": "Aliens"
+    },
+    {
+        "Suavemente": "Softly"
+    },
+    {
+        "Lo Máximo": "The Best"
+    },
+    {
+        "Por Completo": "Completely"
+    },
+    {
+        "Tendencia": "Trending"
+    },
+    {
+        "Malentendido": "Misunderstanding"
+    },
+    {
+        "Cotidiana": "Daily"
+    },
+    {
+        "Resaca": "Hangover"
+    },
+    {
+        "Cotidiana": "Daily"
+    },
+    {
+        "El Día A Día": "Everyday Life"
+    },
+    {
+        "Cotidiana": "Daily"
+    },
+    {
+        "Simultáneamente": "Simultaneously"
+    },
+    {
+        "Medir": "To Measure"
+    },
+    {
+        "Simultáneamente": "Simultaneously"
+    },
+    {
+        "Enseguida": "Right Away"
+    },
+    {
+        "A Cargo": "In Charge"
+    }
+]

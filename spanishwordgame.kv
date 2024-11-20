@@ -130,6 +130,17 @@
     pos_hint: {"center_x": .5}
 
 
+<RoundedButton>:
+    background_color: 0, 0, 0, 0
+    canvas.before:
+        Color:
+            rgba: (.4, .4, .4, 1) if self.state == "normal" else (0, .7, .7, 1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [37]
+
+
 <AllWords>:
 
     Button:

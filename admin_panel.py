@@ -100,5 +100,4 @@ def swapped_words(dictionary: Dict[str, Union[str, List[str]]]) -> Dict[str, Uni
 
 
 if __name__ == "__main__":
-    # word_finder("word_")
-    write_dict_to_json({"Hello": "Hola"}, "new_words.json")
+    print(swapped_words.__doc__)

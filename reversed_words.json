@@ -50,8 +50,8 @@
     "Arrogant": "Presumido",
     "As A Family": "En Familia",
     "As Far As": [
-        "En Cuanto A",
-        "En Cuento"
+        "En Cuento",
+        "En Cuanto A"
     ],
     "As Far As I Know": "Que Yo Sepa",
     "As If": "Como Si",
@@ -87,8 +87,8 @@
     "Avoidable": "Evitable",
     "Aware": "Consciente",
     "Awful": [
-        "Pésima",
-        "Espantoso"
+        "Espantoso",
+        "Pésima"
     ],
     "BIll": "Billete",
     "Baby Bottle": "Biberón",
@@ -206,8 +206,8 @@
     "Clear": "Despejado",
     "Clogged": "Tapado",
     "Close": [
-        "Íntimos",
-        "Unida"
+        "Unida",
+        "Íntimos"
     ],
     "Clue": "Pista",
     "Clumsy": "Torpe",
@@ -317,8 +317,8 @@
     "Endless": "Interminable",
     "Engaged": "Comprometido",
     "Entertained": [
-        "Entretenidos",
-        "Entretenido"
+        "Entretenido",
+        "Entretenidos"
     ],
     "Entrance": "Acceso",
     "Entrepreneurs": "Emprendedoras",
@@ -434,19 +434,19 @@
     "Headphones": "Auriculares",
     "Health Care": "Atencion Medica",
     "Health Clinic": [
-        "Centro Médico",
-        "Centro De Salud"
+        "Centro De Salud",
+        "Centro Médico"
     ],
     "Health Insurance": [
-        "Seguro Medicino",
-        "Seguro De Salud"
+        "Seguro De Salud",
+        "Seguro Medicino"
     ],
     "Healthy": "Sano",
     "Heart Attack": "Infarto",
     "Heat Wave": "Ola De Calor",
     "Heater": [
-        "Radiador",
-        "Calentador"
+        "Calentador",
+        "Radiador"
     ],
     "Helmet": "Casco",
     "Help": "Socorro",
@@ -653,8 +653,8 @@
     "Oh Well": "Ni Modo",
     "Ointment": "Pomada",
     "Old-Fashioned": [
-        "Pasado De Moda",
-        "Anticuado"
+        "Anticuado",
+        "Pasado De Moda"
     ],
     "Olive": "Aceituna",
     "On Fire": "En Llamas",
@@ -663,8 +663,8 @@
     "On Schedule": "A Horario",
     "On Second Thought": "Pensándolo Bien",
     "On The Contrary": [
-        "En Cambio",
-        "Al Contrario"
+        "Al Contrario",
+        "En Cambio"
     ],
     "On The Inside": "Por Dentro",
     "On The Outside": "Por Fuera",
@@ -672,8 +672,8 @@
     "One Way": "De Ida",
     "Only": "Únicamente",
     "Opposite": [
-        "A pesar De",
-        "Opuesto"
+        "Opuesto",
+        "A pesar De"
     ],
     "Optician": "Oculista",
     "Optional": "Optativa",
@@ -862,8 +862,8 @@
     "Shipping": "Envío",
     "Shoelaces": "Cordones",
     "Shortly After": [
-        "Poco Después",
-        "Al Poco Tiempo"
+        "Al Poco Tiempo",
+        "Poco Después"
     ],
     "Shrimps": "Camarones",
     "Side Effect": "Efecto Secundario",
@@ -940,8 +940,8 @@
     "Sunscreen": "Protector Solar",
     "Supplier": "Proveedor",
     "Supposedly": [
-        "Se Supone",
-        "Supuestamente"
+        "Supuestamente",
+        "Se Supone"
     ],
     "Surgeon": "Cirujana",
     "Surprising": "Sorprendente",
@@ -959,8 +959,8 @@
     "Tag": "Etiqueta",
     "Take A Look": "Echar Un Vistazo",
     "Talkative": [
-        "Educada",
-        "Conversadora"
+        "Conversadora",
+        "Educada"
     ],
     "Tanned": "Bronceado",
     "Taste": "Gusto",
@@ -1003,8 +1003,8 @@
     "Tiring": "Cansador",
     "Tissue": "Pañuelo",
     "To Achieve": [
-        "Lograr",
-        "Alcanzar"
+        "Alcanzar",
+        "Lograr"
     ],
     "To Admit": [
         "Internal",
@@ -1013,8 +1013,8 @@
     "To Allow": "Permitir",
     "To Apologise": "Pedir Perdón",
     "To Appear": [
-        "Salir",
         "Aparece",
+        "Salir",
         "Aparecer"
     ],
     "To Applaud": "Aplaudir",
@@ -1122,8 +1122,8 @@
     "To Get Up Early": "Madrugar",
     "To Get Wet": "Mojarse",
     "To Give Up": [
-        "Estar Resignada",
-        "Darse Por Vencido"
+        "Darse Por Vencido",
+        "Estar Resignada"
     ],
     "To Glue": "Pegar",
     "To Graduate": "Graduarse",
@@ -1224,8 +1224,8 @@
     "To Slap": "Dar Una Cachetada",
     "To Slip": "Resbalar",
     "To Sneeze": [
-        "Estornudiar",
-        "Estornudar"
+        "Estornudar",
+        "Estornudiar"
     ],
     "To Snore": "Roncar",
     "To Solve": "Resolver",
@@ -1246,8 +1246,8 @@
     "To Subscribe": "Suscribir",
     "To Succeed": "Triunfar",
     "To Suggest": [
-        "Indicar",
-        "Sugerir"
+        "Sugerir",
+        "Indicar"
     ],
     "To Support": [
         "Soportar",
@@ -1313,8 +1313,8 @@
     "Up Next": "A Continuation",
     "Up To Date": "Al Tanto",
     "Urgently": [
-        "De Urgencia",
-        "Urgentemente"
+        "Urgentemente",
+        "De Urgencia"
     ],
     "Useless": "Inútil",
     "Username": "Nombre De Usuario",
