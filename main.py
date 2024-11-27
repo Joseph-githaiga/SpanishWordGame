@@ -1,16 +1,253 @@
-from kivy.app import App
 from kivy.core.window import Window
+from kivy.app import App
+from kivy.lang import Builder
+from kivy.graphics import RoundedRectangle, Color
 from kivy.properties import StringProperty
 from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.core.audio import SoundLoader
 from kivy.uix.label import Label
+from kivy.uix.recycleview import RecycleView
 from kivy.uix.screenmanager import ScreenManager, Screen
-from WordDictionary import words, words_key_list, reversed_dict  # .py file containing words to be used in the game
+from WordDictionary import words, sorted_words, words_key_list, reversed_dict
 from admin_panel import write_dict_to_json
 import random
 import pyttsx3
+from kivy import require
+
+
+require("2.3.0")
+
+Builder.load_string("""
+#: kivy 2.3.0
+
+
+<HomeScreen>:
+
+    BoxLayout:
+        orientation: "vertical"
+
+        Label:
+            text: "S P A N I S H  W O R D  G A M E"
+            bold: True
+            font_size: 33
+            font_name: root.sackers_gothic_font
+            color: (1, .5, .8, 1)
+            size_hint: (1, .5)
+
+        BoxLayout:
+            orientation: "vertical"
+            spacing: 5
+            padding: 20
+
+            MainMenuButton:
+                text: "Main Game"
+                on_release: root.manager.current = 'main'
+            MainMenuButton:
+                text: "Words List"
+                on_release: root.manager.current = 'words'
+            MainMenuButton:
+                text: "Add New Words"
+                on_release: root.manager.current = 'new words'
+            MainMenuButton:
+                text: "Voice Settings"
+                on_release: root.manager.current = 'voices'
+            MainMenuButton:
+                text: "Records"
+                on_release: root.manager.current = 'records'
+            MainMenuButton:
+                text: "Exit"
+                on_release: exit()
+
+
+<MainGame>:
+    rows: 3
+
+    BoxLayout:
+        id: display_layout
+        orientation: "horizontal"
+        size_hint_y: .3
+
+        BoxLayout:
+            id: score_layout
+            Label:
+                id: score_label
+                text: "Score: "
+                font_name: root.eurostille_font
+                font_size: 20
+                color: (0, 1, 0, 1)
+
+            Label:
+                id: score_text
+                text: str(root.score)
+                font_name: root.eurostille_font
+                font_size: 20
+                color: (1, 0, 0, 1)
+
+        Label:
+            id: display_label
+            text: "Match the words!"
+            color: (1, 1, 0, 1)
+            font_size: 27
+            font_name: root.sackers_gothic_font
+
+        BoxLayout:
+            id: streak_layout
+
+            Label:
+                id: streak_label
+                text: "Streak: "
+                font_name: root.eurostille_font
+                font_size: 20
+                color: (0, 1, 0, 1)
+
+            Label:
+                id: streak_text
+                text: str(root.streak)
+                font_name: root.eurostille_font
+                font_size: 20
+                color: (1, 0, 0, 1)
+
+    GridLayout:
+        id: words_layout
+        cols: 2
+        size_hint_y: .6
+        padding: 10
+
+        BoxLayout:
+            id: spanish_words
+            orientation: "vertical"
+            spacing: 5
+            padding: [10, 10, 5, 10]  # [left, top, right, bottom]
+
+        BoxLayout:
+            id: english_words
+            orientation: "vertical"
+            padding: [5, 10, 10, 10]  # [left, top, right, bottom]
+            spacing: 5
+
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint: (.5, .1)
+        padding: 3
+        spacing: 7
+
+        RoundedButton:
+            text: "Back"
+            size_hint_x: .3
+            font_size: 18
+            on_release: root.manager.current = 'home'
+
+        RoundedButton:
+            id: next_round_button
+            text: "Next Round"
+            font_size: 18
+            on_press:
+                root.next_round(self)
+            disabled: True
+
+
+<MainMenuButton@RoundedButton>:
+
+    size_hint: (.7, .7)
+    pos_hint: {"center_x": .5}
+
+
+<RoundedButton>:
+    background_color: 0, 0, 0, 0
+    canvas.before:
+        Color:
+            rgba: (.4, .4, .4, 1) if self.state == "normal" else (0, .7, .7, 1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [37]
+
+
+<RVLabel@Label>:
+    font_size: 20
+
+
+<AllWords>:
+    viewclass: "RVLabel"
+    RecycleBoxLayout:
+        default_size: None, dp(48)
+        default_size_hint: 1, None
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: "vertical"
+
+
+<AddNewWords>:
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 10
+
+        Button:
+            text: "Back"
+            on_release: root.manager.current = 'home'
+            size_hint: (.3, .1)
+        GridLayout:
+            cols: 2
+            rows: 2
+            spacing: 10
+
+            Label:
+                id: spanish_textbox_label
+                text: "Spanish Word"
+                font_size: 40
+                size_hint_y: .2
+            Label:
+                text: "English Word"
+                font_size: 40
+                size_hint_y: .2
+            TextInput:
+                id: spanish_word_textbox
+                multiline: False
+                size_hint_y: .02
+                font_size: 30
+                background_normal: ""
+                background_color: (.3, .3, .3, 1)
+                pos_hint: {"center_y": .5}
+            TextInput:
+                id: english_word_textbox
+                multiline: False
+                size_hint_y: .02
+                font_size: 30
+                background_normal: ""
+                background_color: (.3, .3, .3, 1)
+                pos_hint: {"center_y": .5}
+        Button:
+            text: "Submit"
+            size_hint_x: .3
+            size_hint_y: .1
+            pos_hint: {"center_x": .5}
+            on_press: root.submit()
+
+
+<VoiceSettings>:
+
+    Button:
+        text: "Back"
+        on_release: root.manager.current = 'home'
+        size_hint: (.2, .08)
+        padding: 50
+        pos_hint: {"center_x": .5, "center_y": .3}
+
+
+<Records>:
+
+    Button:
+        text: "Back"
+        on_release: root.manager.current = 'home'
+        size_hint: (.2, .08)
+        padding: 50
+        pos_hint: {"center_x": .5, "center_y": .3}
+
+""")
 
 
 class MainGame(GridLayout, Screen):
@@ -77,6 +314,20 @@ class MainGame(GridLayout, Screen):
         """
         self.ids.display_label.text = ""  # Removes the text from the display label in the .kv file
         self.selected_spanish_word = instance.text  # Stores the text of the button pressed
+
+        # Animate button with the selected word
+        if instance.text == self.selected_spanish_word:
+            if instance.state == "normal":
+                instance.background_color = 0, 0, 0, 0
+                with self.canvas.before:
+                    Color(.4, .4, .4, 1)
+                    RoundedRectangle(pos=instance.pos, size=instance.size, radius=[37])
+            else:
+                instance.background_color = 0, 0, 0, 0
+                with self.canvas.before:
+                    Color(0, .7, .7, 1)
+                    RoundedRectangle(pos=instance.pos, size=instance.size, radius=[37])
+
         self.check_match()  # Checks if there is a correct match assuming 2 words have been selected
 
     def english_button_press(self, instance: Button) -> None:
@@ -87,6 +338,20 @@ class MainGame(GridLayout, Screen):
         """
         self.ids.display_label.text = ""  # Removes the text from the display label in the .kv file
         self.selected_english_word = instance.text  # Stores the text of the button pressed
+
+        # Animate button with the selected word
+        if instance.text == self.selected_english_word:
+            if instance.state == "normal":
+                instance.background_color = 0, 0, 0, 0
+                with self.canvas.before:
+                    Color(.4, .4, .4, 1)
+                    RoundedRectangle(pos=instance.pos, size=instance.size, radius=[37])
+            else:
+                instance.background_color = 0, 0, 0, 0
+                with self.canvas.before:
+                    Color(0, .7, .7, 1)
+                    RoundedRectangle(pos=instance.pos, size=instance.size, radius=[37])
+
         self.check_match()  # Checks if there is a correct match assuming 2 words have been selected
 
     def correct(self) -> None:
@@ -216,13 +481,12 @@ class RoundedButton(Button):
     pass
 
 
-class AllWords(Screen, BoxLayout):
+class AllWords(Screen, RecycleView):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        self.orientation = "horizontal"
-        self.add_widget(Label(text="Words List Under Development!", font_size=35, bold=True, color=(.5, .5, .5, 1)))
+        self.data = [{"text": f"{key}:    {value}"} for key, value in sorted_words.items()]
 
 
 class VoiceSettings(Screen, BoxLayout):
@@ -285,6 +549,7 @@ class SpanishWordGameApp(App):
         :return: sm
         :rtype: ScreenManager
         """
+        self.title = "Word Matching Game"  # Window title
         sm = ScreenManager()  # Instantiate the ScreenManager class
         # Add screens to the screen manager
         sm.add_widget(HomeScreen(name="home"))
@@ -294,6 +559,10 @@ class SpanishWordGameApp(App):
         sm.add_widget(VoiceSettings(name="voices"))
         sm.add_widget(Records(name="records"))
         return sm
+
+    def on_start(self):
+        Window.size = (640, 800)
+        Window.top = 30
 
 
 if __name__ == "__main__":

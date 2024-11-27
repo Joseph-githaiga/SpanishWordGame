@@ -1,3 +1,5 @@
+#: kivy 2.3.0
+
 
 <HomeScreen>:
 
@@ -109,13 +111,13 @@
         padding: 3
         spacing: 7
 
-        Button:
+        RoundedButton:
             text: "Back"
             size_hint_x: .3
             font_size: 18
             on_release: root.manager.current = 'home'
 
-        Button:
+        RoundedButton:
             id: next_round_button
             text: "Next Round"
             font_size: 18
@@ -124,7 +126,7 @@
             disabled: True
 
 
-<MainMenuButton@Button>
+<MainMenuButton@RoundedButton>:
 
     size_hint: (.7, .7)
     pos_hint: {"center_x": .5}
@@ -141,21 +143,31 @@
             radius: [37]
 
 
-<AllWords>:
+<RVLabel@Label>:
+    font_size: 20
 
-    Button:
-        text: "Back"
-        on_release: root.manager.current = 'home'
-        size_hint: (.2, .08)
-        padding: 50
-        pos_hint: {"center_x": .5, "center_y": .3}
+
+<AllWords>:
+    viewclass: "RVLabel"
+    RecycleBoxLayout:
+        default_size: None, dp(48)
+        default_size_hint: 1, None
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: "vertical"
 
 
 <AddNewWords>:
+
     BoxLayout:
         orientation: "vertical"
         padding: 20
         spacing: 10
+
+        Button:
+            text: "Back"
+            on_release: root.manager.current = 'home'
+            size_hint: (.3, .1)
         GridLayout:
             cols: 2
             rows: 2

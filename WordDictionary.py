@@ -3,7 +3,9 @@ from admin_panel import load_json, swapped_words
 # special_characters = ("ñ", "á", "é", "í", "ó", "ú")
 
 words: dict = load_json("words.json")
+sorted_words: dict = load_json("sorted_words.json")
 reversed_dict: dict = swapped_words(words)
+sorted_reversed_dict: dict = swapped_words(sorted_words)
 # write_dict_to_json(reversed_dict, "reversed_words.json", is_sorted=True)
 words_key_list: list = list(words.keys())
 words_values_list: list = list(words.values())
