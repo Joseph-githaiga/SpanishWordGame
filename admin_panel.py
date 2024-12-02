@@ -1,3 +1,8 @@
+"""
+These are a bunch of functions for writing or reading .json files to be used in other modules.
+"""
+
+
 import json
 import os
 from typing import Union, Dict, List

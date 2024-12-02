@@ -1,3 +1,8 @@
+"""
+This is where the word variables are set after the json files are read.
+"""
+
+
 from admin_panel import load_json, swapped_words
 
 # special_characters = ("ñ", "á", "é", "í", "ó", "ú")
