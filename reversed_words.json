@@ -3,6 +3,7 @@
     "A Broken Record": "Un Disco Rayado",
     "A Challenge": "Un Reto",
     "A Complaint": "Una Queja",
+    "A Drag": "Un Fastidio",
     "A Fence": "Una Cerca",
     "A Few": "Cuantas",
     "A Fly": "Una Mosca",
@@ -12,6 +13,7 @@
     "A Slap": "Una Cachetada",
     "A Stand": "Un Puesto",
     "A Stay": "Una Estadía",
+    "A Swing": "Un Columpio",
     "A Transfer": "Una Transferencia",
     "A Walk": "Un Paseo",
     "Absolutely": "Absolutamente",
@@ -57,10 +59,11 @@
     "As A Family": "En Familia",
     "As An Adult": "De Grande",
     "As Far As": [
-        "En Cuanto A",
-        "En Cuento"
+        "En Cuento",
+        "En Cuanto A"
     ],
     "As Far As I Know": "Que Yo Sepa",
+    "As I Was Saying": "Como Decía",
     "As If": "Como Si",
     "As If Nothing Happened": "Como Si Nada",
     "As Long As": [
@@ -69,8 +72,8 @@
     ],
     "As Soon As": "En Cuanto",
     "As Soon As Possible": [
-        "Cuanto Antes",
-        "Cuánto Antes"
+        "Cuánto Antes",
+        "Cuanto Antes"
     ],
     "As The Days Go By": "Con El Paso De Los Días",
     "Asian": "Asiático",
@@ -82,11 +85,13 @@
     "At First": "Al Inicio",
     "At Full Volume": "A Todo Volumen",
     "At Least": [
-        "Como Mínimo",
-        "Por Lo Menos"
+        "Por Lo Menos",
+        "Aunque Sea",
+        "Como Mínimo"
     ],
     "At Most": "Como Mucho",
     "At The Last Minute": "A Última Hora",
+    "At The Same Time": "A La Vez",
     "At Your Service": "A Tus Órdenes",
     "Athletics": "Atletismo",
     "Attack": "Atentado",
@@ -97,8 +102,8 @@
     "Average": "Promedio",
     "Avoidable": "Evitable",
     "Aware": [
-        "Al Tanto",
-        "Consciente"
+        "Consciente",
+        "Al Tanto"
     ],
     "Awful": [
         "Espantoso",
@@ -133,8 +138,8 @@
     "Behaviour": "Comportamiento",
     "Beliefs": "Creencias",
     "Belly": [
-        "Barriga",
-        "Panza"
+        "Panza",
+        "Barriga"
     ],
     "Belongings": "Pertenencias",
     "Below Zero": "Bajo Cero",
@@ -163,6 +168,7 @@
     "Branch": "Sucursal",
     "Branch, Stick": "Rama",
     "Brand": "Marca",
+    "Brats": "Mocosos",
     "Brave": "Valiente",
     "Break The Monotony": "Romper La Monotonía",
     "Break Up": "Ruptura",
@@ -199,6 +205,7 @@
     "Can Opener": "Abrelatas",
     "Candle Holder": "Candelabro",
     "Canvas": "Lienzo",
+    "Cap/Lid": "Tapa",
     "Car Horn": "Bocina",
     "Carbonated Water": "Agua Con Gas",
     "Cardboard": "Cartón",
@@ -229,8 +236,8 @@
     "Clear": "Despejado",
     "Clogged": "Tapado",
     "Close": [
-        "Unida",
-        "Íntimos"
+        "Íntimos",
+        "Unida"
     ],
     "Clue": "Pista",
     "Clumsy": "Torpe",
@@ -246,11 +253,14 @@
     "Common Sense": "Sentido Común",
     "Competitors": "Competidores",
     "Completely": "Por Completo",
+    "Complicated": "Complejo",
     "Concept": "Concepto",
     "Confusing": "Confuso",
+    "Congressman": "Diputado",
     "Conscious": "Consciente",
     "Consequence": "Consecuencia",
     "Console": "Consolar",
+    "Constantly": "Constantemente",
     "Construction Worker": "Albañil",
     "Consulate": "Consulado",
     "Consumption": "Consumo",
@@ -263,6 +273,7 @@
     "Course Of Study": "Plan De Estudio",
     "Cover Letter": "Carta De Presentación",
     "Cozy": "Acogedor",
+    "Crabs": "Cangrejos",
     "Crack": "Grieta",
     "Cracks": "Grietas",
     "Cream Milk": "Leche Descremada",
@@ -286,6 +297,7 @@
     "Dead End Street": "Calle Sin Salida",
     "Dead Tired": "Muerto De Cansancio",
     "Deals": "Gangas",
+    "Debris": "Escombros",
     "Debt": "Deuda",
     "Declined": "Decaído",
     "Decor": "Decoración",
@@ -311,8 +323,8 @@
     "Disadvantage": "Desventaja",
     "Disappointed": "Desilusionado",
     "Discomfort": [
-        "Malestar",
-        "Molestia"
+        "Molestia",
+        "Malestar"
     ],
     "Discouraged": "Desanimado",
     "Distress": "Angustia",
@@ -348,9 +360,10 @@
     "Employment": "Empleo",
     "Endless": "Interminable",
     "Engaged": "Comprometido",
+    "Enough!": "Basta",
     "Entertained": [
-        "Entretenidos",
-        "Entretenido"
+        "Entretenido",
+        "Entretenidos"
     ],
     "Entrance": "Acceso",
     "Entrepreneurs": "Emprendedoras",
@@ -364,6 +377,7 @@
     "Even Though": "Y Eso Que",
     "Eventually": "A La Larga",
     "Ever": "Alguna Vez",
+    "Every Now And Then": "Cada Tanto",
     "Everyday Life": "El Día A Día",
     "Evil Eye": "Mal De Ojo",
     "Exchange": "Intercambiar",
@@ -446,6 +460,7 @@
     "Grater": "Rallador",
     "Great Grandmother": "Bisabuela",
     "Grouch": "Aguafiestas",
+    "Grounded": "Castigado",
     "Growing Apart": "Distanciarse",
     "Grudgingly": "De Mala Gana",
     "Guard": "Guardia",
@@ -517,6 +532,7 @@
     "Humidity": "Humedad",
     "Hurt": "Dolido",
     "I Became": "Me Hice",
+    "I Beg Of You": "Te Lo Suplico",
     "I Bet": "Apuesto",
     "I Like": "Me Agrada",
     "I Made A Fool Of Myself": "Hice El Ridículo",
@@ -525,6 +541,7 @@
     "If I Remember Correctly": "Si Mal No Recuerdo",
     "If I Were You": "Yo Que Tú",
     "If It Were Me": "Si Fuera Yo",
+    "If It's Not Too Much Trouble": "Si No Es Mucha Molestia",
     "If That's The Case": "Si Es Así",
     "Illness": "Enfermedad",
     "Immediately": "De Inmediato",
@@ -533,8 +550,8 @@
     "In A Way": "En Cierto Modo",
     "In Advance": "Por Anticipado",
     "In Any Case": [
-        "En Cualquier Caso",
-        "De Cualquier Manera"
+        "De Cualquier Manera",
+        "En Cualquier Caso"
     ],
     "In Charge": "A Cargo",
     "In Fact": "De Hecho",
@@ -561,6 +578,7 @@
     "Interpreter": "Intérprete",
     "Intersection": "Cruce",
     "Investment": "Inversión",
+    "Isolated": "Aislada",
     "It Catches Your Attention": "Te Llama La Atención",
     "It Slipped My Mind": "Se Me Pasó",
     "It Would Suit Me": "Me Vendría Bien",
@@ -605,6 +623,7 @@
     "Law": "Derecho",
     "Layovers": "Escalas",
     "Leak": "Gotera",
+    "Leftovers": "Sobras",
     "Lend A Hand": "Echar Una Mano",
     "Lentils": "Lentejas",
     "Let Go": "Soltar",
@@ -635,6 +654,7 @@
     "Mammals": "Mamíferos",
     "Mandatory": "Obligatorio",
     "Mansion": "Mansión",
+    "Marker": "Marcador",
     "Masters Degree": "Maestría",
     "Maternity": "Maternidad",
     "Matter": "Asunto",
@@ -693,7 +713,10 @@
     "Ninth": "Noveno",
     "No Big Deal": "No Es Para Tanto",
     "No Matter How Much": "Por Más Que",
-    "No Matter What": "Sí O Sí",
+    "No Matter What": [
+        "Sea Como Sea",
+        "Sí O Sí"
+    ],
     "Nonsense": "Tontería",
     "Noodles": "Fideos",
     "Northwest": "Noroeste",
@@ -704,6 +727,7 @@
     "Nowadays": "Hoy En Día",
     "Nuez": "Nut",
     "Oatmeal": "Avena",
+    "Obsessed": "Obsesionado",
     "Obstacles": "Obstáculos",
     "Of Silver": "Plateado",
     "Office": "Consultario",
@@ -711,8 +735,8 @@
     "Oh Well": "Ni Modo",
     "Ointment": "Pomada",
     "Old-Fashioned": [
-        "Pasado De Moda",
-        "Anticuado"
+        "Anticuado",
+        "Pasado De Moda"
     ],
     "Olive": "Aceituna",
     "On Fire": "En Llamas",
@@ -721,17 +745,18 @@
     "On Schedule": "A Horario",
     "On Second Thought": "Pensándolo Bien",
     "On The Contrary": [
-        "Al Contrario",
-        "En Cambio"
+        "En Cambio",
+        "Al Contrario"
     ],
     "On The Inside": "Por Dentro",
     "On The Outside": "Por Fuera",
     "Once": "Una Vez",
+    "Once And For All": "De Una Buena Vez",
     "One Way": "De Ida",
     "Only": "Únicamente",
     "Opposite": [
-        "A pesar De",
-        "Opuesto"
+        "Opuesto",
+        "A pesar De"
     ],
     "Optician": "Oculista",
     "Optional": "Optativa",
@@ -745,6 +770,7 @@
     "Outskirts": "Alrededores",
     "Over And Over": "Una Y Otra Vez",
     "Over-The-Counter": "Sin Receta",
+    "Overnight": "De La Noche A La Mañana",
     "Oversleep": "Quedarse Dormido",
     "Overwhelmed": "Agobiada",
     "Owner": "Propietario",
@@ -770,8 +796,8 @@
     "Percentage": "Porcentaje",
     "Perhaps": "Acaso",
     "Period": [
-        "Periodo",
-        "Plazo"
+        "Plazo",
+        "Periodo"
     ],
     "PhD": "Doctorado",
     "Physical Form": "Estado Físico",
@@ -789,7 +815,10 @@
     "Popularity": "Popularidad",
     "Pork Chops": "Chuletas De Cerdo",
     "Portrait": "Retrato",
-    "Position": "Puesto",
+    "Position": [
+        "Puesto",
+        "Postura"
+    ],
     "Postal Worker": "Cartero",
     "Pot": "Olla",
     "Practice": "Entrenamiento",
@@ -806,6 +835,7 @@
     "Prime Minister": "Primera Ministra",
     "Prince": "Príncipe",
     "Priority": "Prioridad",
+    "Privacy": "Privacidad",
     "Process": "Trámite",
     "Profits": "Ganancias",
     "Programmer": "Programador",
@@ -819,6 +849,7 @@
     "Pumpkin": "Calabaza",
     "Punctual": "Puntual",
     "Puppy": "Cachorra",
+    "Purée": "Puré",
     "Quality": "Cualidad",
     "Quantity": "Cantidad",
     "Questions": "Dudas",
@@ -833,6 +864,7 @@
     "Realtor": "Agente Inmobiliario",
     "Reason": "Motivo",
     "Recommendation": "Sugerencia",
+    "Reconstruct": "Reconstruir",
     "Rectangle": "Rectángulo",
     "Red-Head": "Pelirroja",
     "Regarding": "Respecto",
@@ -916,6 +948,7 @@
     ],
     "Sensitive": "Sensible",
     "Service": "Atención",
+    "Set A Good Example": "Dar El Ejemplo",
     "Set Out To Do Something": "Ponerse A Hacer Algo",
     "Set The Table": "Poner La Mesa",
     "Seventh": "Séptimo",
@@ -929,8 +962,8 @@
     "Shipping": "Envío",
     "Shoelaces": "Cordones",
     "Shortly After": [
-        "Al Poco Tiempo",
-        "Poco Después"
+        "Poco Después",
+        "Al Poco Tiempo"
     ],
     "Shrimps": "Camarones",
     "Side Effect": "Efecto Secundario",
@@ -978,10 +1011,12 @@
     "Sprain": "Esguince",
     "Sprinkles": "Chispitas",
     "Squash": "Calabacines",
+    "Squirrel": "Ardilla",
     "Squirrels": "Ardillas",
     "Stability": "Estabilidad",
     "Stage": "Etapa",
     "Stamp": "Sello",
+    "Starting From": "A Partir De",
     "Statistics": "Estadísticas",
     "Statue": "Estatua",
     "Stew": "Guiso",
@@ -1012,8 +1047,8 @@
     "Sunscreen": "Protector Solar",
     "Supplier": "Proveedor",
     "Supposedly": [
-        "Supuestamente",
-        "Se Supone"
+        "Se Supone",
+        "Supuestamente"
     ],
     "Surgeon": "Cirujana",
     "Surprising": "Sorprendente",
@@ -1028,11 +1063,12 @@
     "Syrup": "Jarabe",
     "Tablecloth": "Mantel",
     "Tablespoon": "Cucharada",
+    "Tactless": "Indiscretas",
     "Tag": "Etiqueta",
     "Take A Look": "Echar Un Vistazo",
     "Talkative": [
-        "Educada",
-        "Conversadora"
+        "Conversadora",
+        "Educada"
     ],
     "Tanned": "Bronceado",
     "Taste": "Gusto",
@@ -1046,7 +1082,10 @@
     "Temple": "Templo",
     "Temptation": "Tentación",
     "Tension": "Tensión",
-    "Tent": "Carpa",
+    "Tent": [
+        "Tienda De Campaña",
+        "Carpa"
+    ],
     "Term": "Condición",
     "Terrorism": "Terrorismo",
     "Than Ever": "Que Nunca",
@@ -1076,19 +1115,20 @@
     "Tiring": "Cansador",
     "Tissue": "Pañuelo",
     "To Achieve": [
-        "Alcanzar",
-        "Lograr"
+        "Lograr",
+        "Alcanzar"
     ],
     "To Admit": [
         "Reconocer",
         "Internal"
     ],
+    "To Agree": "Coincidir",
     "To Allow": "Permitir",
     "To Apologise": "Pedir Perdón",
     "To Appear": [
-        "Salir",
         "Aparecer",
-        "Aparece"
+        "Aparece",
+        "Salir"
     ],
     "To Applaud": "Aplaudir",
     "To Apply": "Solicitar",
@@ -1110,13 +1150,13 @@
     "To Belong": "Pertenecer",
     "To Bet": "Apostar",
     "To Bite": [
-        "Picar",
-        "Morder"
+        "Morder",
+        "Picar"
     ],
     "To Blow": "Solar",
     "To Blush": [
-        "Sonrojarse",
-        "Ruborizarse"
+        "Ruborizarse",
+        "Sonrojarse"
     ],
     "To Board": "Embarcar",
     "To Boil": "Hervir",
@@ -1127,21 +1167,23 @@
     "To Burn": "Arder",
     "To Carry Out": "Realizar",
     "To Catch": "Atrapar",
+    "To Catch Fire": "Incendiarse",
     "To Catch Up": "Ponerse Al Día",
     "To Cause": "Provocar",
     "To Charge": "Cobrar",
     "To Cheat": "Copiar",
     "To Check": [
-        "Revisar",
-        "Fijar"
+        "Fijar",
+        "Revisar"
     ],
     "To Chew": "Masticar",
     "To Chop": "Picar",
     "To Clarify": "Aclarar",
     "To Clear": [
-        "Recoger",
-        "Despejar"
+        "Despejar",
+        "Recoger"
     ],
+    "To Collapse": "Desmoronarse",
     "To Colour": "Colorear",
     "To Come Closer": "Acercar",
     "To Commit": "Comprometer",
@@ -1167,11 +1209,13 @@
     "To Define": "Definir",
     "To Deliver": "Entregar",
     "To Demand": "Exigir",
+    "To Destroy": "Destrozar",
     "To Develop": "Desarrollar",
     "To Die": "Fallecer",
     "To Disagree": "Estar En Desacuerdo",
     "To Disappoint": "Decepcionar",
     "To Distance Oneself": "Distanciarse",
+    "To Distribute": "Repartir",
     "To Do Your Hair": "Peinar",
     "To Drag": "Arrastrar",
     "To Drag Oneself": "Arrastrarse",
@@ -1198,6 +1242,7 @@
     "To Find Out": "Averiguar",
     "To Fit": "Caber",
     "To Fix": "Arreglar",
+    "To Flood": "Inundar",
     "To Freeze": "Se Congela",
     "To Furnish": "Amueblar",
     "To Gather": "Recoger",
@@ -1224,6 +1269,7 @@
     "To Hang": "Colgar",
     "To Have A Reputation For": "Tener Fama De",
     "To Have A Snack": "Merendar",
+    "To Head To": "Pasar A",
     "To Heat": "Calentar",
     "To Hinder": "Impedir",
     "To Hire": "Contratar",
@@ -1275,6 +1321,7 @@
     "To Nibble": "Picar",
     "To Notice": "Notar",
     "To Obey": "Obedecer",
+    "To Overflow": "Desbordar",
     "To Peel": "Pelar",
     "To Perfection": "A La Perfección",
     "To Pick Up": "Recoger",
@@ -1286,6 +1333,7 @@
     "To Put An End To": "Poner Fin A",
     "To Quit": "Renunciar",
     "To Reach": "Alcanzar",
+    "To Reconcile": "Hacer Las Pases",
     "To Reduce": [
         "Disminuir",
         "Reducir"
@@ -1343,6 +1391,7 @@
     "To Stomach": "Soportar",
     "To Stop": "Detener",
     "To Stress Out Oneself": "Estresarse",
+    "To Stretch": "Estirar",
     "To Study": "Cursar",
     "To Subscribe": "Suscribir",
     "To Succeed": "Triunfar",
@@ -1351,16 +1400,18 @@
         "Sugerir"
     ],
     "To Support": [
-        "Soportar",
-        "Apoyar"
+        "Apoyar",
+        "Soportar"
     ],
     "To Swim": "Bañarse",
     "To Take A Course": "Cursar",
     "To Take A Walk": "Saca A Pasear",
     "To Take Care Of": "Ocuparse",
     "To Take Into Account": "Tomar En Cuenta",
+    "To Take Long": "Tardarse",
     "To Take Revenge": "Vengarse",
     "To Take Something The Wrong Way": "Tomarlo Mal",
+    "To Tell On": "Acusar",
     "To Thaw": "Descongelar",
     "To Throw": "Tirar",
     "To Throw Out": "Echar",
@@ -1389,16 +1440,18 @@
     "Traffic Jam": "Embotellamiento",
     "Traffic Lights": "Semáforos",
     "Training": [
-        "Capacitacion",
-        "Compacitación"
+        "Compacitación",
+        "Capacitacion"
     ],
     "Transportation": "Transporte",
     "Travellers": "Viajeros",
     "Tray": "Bandeja",
     "Treatment": "Tratamiento",
+    "Tremor": "Temblor",
     "Trending": "Tendencia",
     "Triangle": "Triángulo",
     "Triplets": "Trillizos",
+    "Trophy": "Trofeo",
     "Trucks": "Camiones",
     "Trunk": "Maletero",
     "Trustworthy": "Fiable",
@@ -1454,6 +1507,7 @@
     "Whatever You Call It": "Como Se Llame",
     "Wheat": "Trigo",
     "Wheelchair": "Silla De Ruedas",
+    "Where Were We": "En Qué Estábamos",
     "Who Would Have Thought": "Quién Lo Diría",
     "Widower": "Viudo",
     "Will": "Testamento",
