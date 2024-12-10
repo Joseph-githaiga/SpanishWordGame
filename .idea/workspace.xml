@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cb4d09a0-c5f8-408b-b053-fb342fba2e0d" name="Changes" comment="Initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/4.0_borracho_16_11_2024.py" beforeDir="false" afterPath="$PROJECT_DIR$/4.0_borracho_16_11_2024.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reversed_words.json" beforeDir="false" afterPath="$PROJECT_DIR$/reversed_words.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733129333222</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1733385422611</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1733385422611</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
